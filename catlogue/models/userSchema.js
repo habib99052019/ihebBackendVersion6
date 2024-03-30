@@ -12,11 +12,17 @@ const  userSchema = new mongoose.Schema({
     typM:String,
     typB:String,
     date:String,
+   dateUpdate:String,
     country:String,
     project:String,
     DateN:String,
     color : String,
-    
+    employer:String,
+   isFacebook:Boolean,
+   isWebSite:Boolean,
+   
+   statut:String,
+   isNouveaux:Boolean,
     dateMeet: String,
     timeMeet:String,
     historique:[],
