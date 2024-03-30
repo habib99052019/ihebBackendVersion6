@@ -11,7 +11,7 @@ router.get('/all', async (req, res) => {
      
     var user = await userSchema.find();
       const jsonArray = user.map(doc => doc.toJSON());
-     res.send(jsonArray);
+     res.send(jsonArray.reverse());
 //aaaa
  });
  router.get('/:id', async (req, res) => {
