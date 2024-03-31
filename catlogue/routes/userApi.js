@@ -14,6 +14,13 @@ router.get('/all', async (req, res) => {
      res.send(jsonArray.reverse());
 //aaaa
  });
+router.get('/ledsEmployer/:id', async (req, res) => {
+     
+    var user = await userSchema.find({employer:req.params.id});
+      const jsonArray = user.map(doc => doc.toJSON());
+     res.send(jsonArray.reverse());
+//aaaa
+ });
  router.get('/:id', async (req, res) => {
   console.log("habib")
 var user=  await userSchema.findById(req.params.id)
