@@ -15,6 +15,7 @@ const  userSchema = new mongoose.Schema({
    dateUpdate:String,
     country:String,
     project:String,
+  dateNumber:Number,
     DateN:String,
     color : String,
     employer:String,
