@@ -45,9 +45,9 @@ var user=  await MeetSchema.findById(req.params.id).populate('lead')
   
 
   console.log(req.params.id);
-  var  user = await MeetSchema.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  var  meet= await MeetSchema.findByIdAndUpdate(req.params.id, req.body, { new: true })
  
-  res.send({message:true,user:user})
+  res.send({message:true,meet:meet})
 })
 router.delete('/:id', async (req, res) => {
     try{
