@@ -34,6 +34,7 @@ const off= require('./catlogue/routes/off-plan')
 const rent= require('./catlogue/routes/rentApi')
 const project=require('./catlogue/routes/lunding')
 const employer=require('./catlogue/routes/empoyer')
+const Meet=require('./catlogue/routes/MeetApi')
 //activer les api
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -56,6 +57,7 @@ app.use('/backend/appr',appr);
 app.use('/backend/rent',rent);
 app.use('/backend/one',project);
 app.use('/backend/employer',employer);
+app.use('/backend/meet',Meet);
 app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
 const storage = multer.diskStorage({
