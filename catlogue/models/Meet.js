@@ -11,6 +11,7 @@ const  MeetSchema  = new mongoose.Schema({
          status:String,
          dateMetingSeconde:Number,
           DateMeet:String,
-           Time:String 
+           Time:String ,
+         desc:String
   });
 module.exports=mongoose.model('MeetSchema',MeetSchema);
