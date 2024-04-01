@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const  MeetSchema  = new mongoose.Schema({
    
     title:String,
-    Lead:{ type: Schema.Types.ObjectId, ref:'userSchema'}, 
+    lead:{ type: Schema.Types.ObjectId, ref:'userSchema'}, 
          employer:String,
            id:String,
            date:String,
