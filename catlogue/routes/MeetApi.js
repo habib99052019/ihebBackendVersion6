@@ -16,7 +16,7 @@ const userSchema = require('../models/userSchema')
    
  
    await userSchema.findByIdAndUpdate({ _id:req.body.userPosterId}, { $push: { tableMeet: meet._id } })
-   res.send(prod)
+   res.send(meet)
     
 });
 router.get('/all', async (req, res) => {
