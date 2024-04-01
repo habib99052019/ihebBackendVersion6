@@ -9,21 +9,21 @@ const lodash=require('lodash');
 const userSchema = require('../models/userSchema')
 router.get('/all', async (req, res) => {
      
-    var user = await userSchema.find();
+    var user = await userSchema.find().populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
      res.send(jsonArray.reverse());
 //aaaa
  });
 router.get('/ledsEmployer/:id', async (req, res) => {
      
-    var user = await userSchema.find({employer:req.params.id});
+    var user = await userSchema.find({employer:req.params.id}).populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
      res.send(jsonArray.reverse());
 //aaaa
  });
  router.get('/:id', async (req, res) => {
   console.log("habib")
-var user=  await userSchema.findById(req.params.id)
+var user=  await userSchema.findById(req.params.id).populate('tableMeet')
       
  res.send(user)
 
