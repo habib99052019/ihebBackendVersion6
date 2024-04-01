@@ -21,7 +21,7 @@ const  userSchema = new mongoose.Schema({
     employer:String,
    isFacebook:Boolean,
    isWebSite:Boolean,
-   TableMeet:[{ type: Schema.Types.ObjectId, ref:'MeetSchema'}]
+   TableMeet:[{ type: Schema.Types.ObjectId, ref:'MeetSchema'}] ,
    statut:String,
    isNouveaux:Boolean,
     dateMeet: String,
