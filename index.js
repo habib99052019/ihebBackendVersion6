@@ -34,7 +34,7 @@ const off= require('./catlogue/routes/off-plan')
 const rent= require('./catlogue/routes/rentApi')
 const project=require('./catlogue/routes/lunding')
 const employer=require('./catlogue/routes/empoyer')
-const Meet=require('./catlogue/routes/MeetApi')
+const Meet = require('./catlogue/routes/MeetApi')
 //activer les api
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
