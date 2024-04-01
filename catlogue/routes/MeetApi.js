@@ -15,7 +15,7 @@ const userSchema = require('../models/userSchema')
    var meet= await MeetSchema.create(req.body)
    
  
-   await userSchema.findByIdAndUpdate({ _id:req.body.userPosterId}, { $push: { tableMeet: meet._id } })
+   await userSchema.findByIdAndUpdate({ _id:req.body.lead}, { $push: { tableMeet: meet._id } })
    res.send(meet)
     
 });
