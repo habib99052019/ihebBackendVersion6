@@ -63,7 +63,7 @@ let timeInMillis = date.getTime();
          dateNumber:timeInMillis,
     };
 });
-  console.log(tableauAvecAttributAjouté)
+  // console.log(tableauAvecAttributAjouté)
 //  await userSchema.insertMany(tableauAvecAttributAjouté)
     res.send({message:true});
 });
