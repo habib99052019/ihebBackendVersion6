@@ -55,7 +55,7 @@ let timeInMillis = date.getTime();
          phone:object.phone,
          project:object.project,
          isFacebook:object.isFacebook,
-         isWebsite:object.isWebSite
+         isWebsite:object.isWebSite,
         employer: req.body.employer ,
          dateUpdate:req.body.date,
          date:req.body.date,
