@@ -44,7 +44,7 @@ var user=  await userSchema.findById(req.params.id).populate('tableMeet')
      res.send(user);
  });
  router.post('/addXl', async (req, res) => {
-      console.log(req.body.tabExel)
+      // console.log(req.body.tabExel)
       let date = new Date();
 
 let timeInMillis = date.getTime();
@@ -53,7 +53,7 @@ let timeInMillis = date.getTime();
         name:object.name,
          email:object.email,
          country:object.country,
-         phone:object.phone,
+         phone:object.phone + "/"+object.phone1  ,
          project:object.project,
          isFacebook:object.isFacebook,
          isWebsite:object.isWebSite,
@@ -64,7 +64,7 @@ let timeInMillis = date.getTime();
     };
 });
   // console.log(tableauAvecAttributAjouté)
-//  await userSchema.insertMany(tableauAvecAttributAjouté)
+  await userSchema.insertMany(tableauAvecAttributAjouté)
     res.send({message:true});
 });
  router.put('/:id', async (req, res) => {
