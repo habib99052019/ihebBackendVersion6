@@ -51,7 +51,9 @@ let timeInMillis = date.getTime();
     return {
         ...objet,  
         employer: req.body.employer ,
-         dateUpdate:timeInMillis
+         dateUpdate:req.body.date,
+         date:req.body.date,
+         dateNumbe:timeInMillis,
     };
 });
   console.log("habibbbbb")
