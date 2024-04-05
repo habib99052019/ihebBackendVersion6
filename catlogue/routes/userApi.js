@@ -12,7 +12,7 @@ const userSchema = require('../models/userSchema')
 //      await userSchema.deleteMany()
 //       console.log("del2")
 // }
-// //
+// // //
 // del()
 router.get('/all', async (req, res) => {
      
