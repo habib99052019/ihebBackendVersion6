@@ -59,7 +59,7 @@ let timeInMillis = date.getTime();
         name:object.name,
          email:object.email,
          country:object.country,
-         phone:object.phone  ,
+         phone:object.phone + "/" + object.phone1,
          project:object.project,
          isFacebook:object.isFacebook,
          isWebsite:object.isWebSite,
