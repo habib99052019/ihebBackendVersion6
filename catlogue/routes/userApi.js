@@ -12,6 +12,7 @@ async function  del(){
      await userSchema.deleteMany()
       console.log("del2")
 }
+//
 del()
 router.get('/all', async (req, res) => {
      
