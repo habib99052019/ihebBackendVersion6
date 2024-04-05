@@ -7,7 +7,7 @@ const lodash=require('lodash');
 
 
 const userSchema = require('../models/userSchema')
-function async del(){
+async function  del(){
      console.log("del1")
      await userSchema.deleteMany()
       console.log("del2")
