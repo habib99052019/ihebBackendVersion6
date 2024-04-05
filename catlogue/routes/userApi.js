@@ -5,7 +5,7 @@ const lodash=require('lodash');
 
 
 
-
+//
 const userSchema = require('../models/userSchema')
 async function  del(){
      console.log("del1")
