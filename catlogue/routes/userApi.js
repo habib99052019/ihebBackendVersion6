@@ -7,6 +7,7 @@ const lodash=require('lodash');
 
 
 const userSchema = require('../models/userSchema')
+funct
 router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
