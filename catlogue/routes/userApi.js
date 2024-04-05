@@ -82,7 +82,7 @@ router.delete('/:id', async (req, res) => {
  res.send({message:true})
 
 });
-  router.delete('/many', async (req, res) => {
+  router.get('/del', async (req, res) => {
     try{
          console.log("are")
         await userSchema.deleteMany()
