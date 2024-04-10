@@ -98,7 +98,7 @@ if (day >= 10) {
     }
 
     // Retourner la date au format "dd-mm-yy"
-    var dateUpdate= d + '-' + m + '-' + year;
+    var dateUpdate= day + '-' + m + '-' + year;
      var  user1 = await userSchema.findByIdAndUpdate(req.params.id)
 
   var  user = await userSchema.findByIdAndUpdate(req.params.id, req.body, { new: true })
