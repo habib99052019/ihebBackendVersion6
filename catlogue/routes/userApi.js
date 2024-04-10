@@ -75,11 +75,30 @@ let timeInMillis = date.getTime();
     res.send({message:true});
 });
  router.put('/:id', async (req, res) => {
-  
+   // Créer un objet Date à partir de la chaîne de date fournie
+    var currentDate = new Date();
 
-  console.log(req.params.id);
+    // Extraire le jour, le mois et l'année de l'objet Date
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1; // Les mois commencent à 0, donc on ajoute 1
+    var year = currentDate.getFullYear() ; // Obtenir les deux derniers chiffres de l'année
+
+    // Ajouter un zéro devant le jour et le mois si nécessaire
+    if (day < 10) {
+       var  d = '0' + day;
+    }
+    if (month < 10) {
+      var   m = '0' + month;
+    }
+
+    // Retourner la date au format "dd-mm-yy"
+    var dateUpdate= d + '-' + m + '-' + year;
+     var  user1 = await userSchema.findByIdAndUpdate(req.params.id)
+
   var  user = await userSchema.findByIdAndUpdate(req.params.id, req.body, { new: true })
- 
+      user.date=user1.date
+      user.dateUpdate=dateUpdate
+      await user.save()
   res.send({message:true,user:user})
 })
 
