@@ -90,6 +90,12 @@ let timeInMillis = date.getTime();
     if (month < 10) {
       var   m = '0' + month;
     }
+if (day >= 10) {
+       var  d = '' + day;
+    }
+    if (month >= 10) {
+      var   m = '' + month;
+    }
 
     // Retourner la date au format "dd-mm-yy"
     var dateUpdate= d + '-' + m + '-' + year;
