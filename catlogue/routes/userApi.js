@@ -3,7 +3,17 @@ const express = require('express')
 const router = express.Router();
 const lodash=require('lodash');
 
-
+      function processUser(user) {
+    // Parcours de toutes les clés de l'objet
+    for (var key in user) {
+        // Vérification si la valeur de la propriété est undefined
+        if (user.hasOwnProperty(key) && user[key] === undefined) {
+            // Attribuer une valeur de chaîne vide '' à la propriété undefined
+            user[key] = '';
+        }
+    }
+    return user; // Retourner l'objet user traité
+}
 
 ////
 const userSchema = require('../models/userSchema')
@@ -55,8 +65,9 @@ var user=  await userSchema.findById(req.params.id).populate('tableMeet')
       let date = new Date();
 
 let timeInMillis = date.getTime();
+
       let tableauAvecAttributAjouté = req.body.tabExel.map(object => {
-    return {
+    var user = {
         name:object.name,
          email:object.email,
          country:object.country,
@@ -64,12 +75,17 @@ let timeInMillis = date.getTime();
          project:object.project,
          isFacebook:false,
          isWebsite:false,
-         
+             isOffplan:"",
+          realEstateType:"",
+         budjet:"",
+        dateSale:"",
+           color : "",
             employer: req.body.employer ,
          dateUpdate:req.body.date,
          date:req.body.date,
           dateNumber:timeInMillis,
     };
+          return  processUser(user);
 });
   // console.log(tableauAvecAttributAjouté)
   await userSchema.insertMany(tableauAvecAttributAjouté)
