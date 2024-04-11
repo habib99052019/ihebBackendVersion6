@@ -7,13 +7,13 @@ const lodash=require('lodash');
 
 ////
 const userSchema = require('../models/userSchema')
-// async function  del(){
-//      console.log("del1")
-//      await userSchema.deleteMany()
-//       console.log("del2")
-// }
-// // //
-// del()
+async function  del(){
+     console.log("del1")
+     await userSchema.deleteMany()
+      console.log("del2")
+}
+// //
+del()
 router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
@@ -57,15 +57,17 @@ var user=  await userSchema.findById(req.params.id).populate('tableMeet')
 let timeInMillis = date.getTime();
       let tableauAvecAttributAjouté = req.body.tabExel.map(object => {
     return {
-        name:object.name,
-         email:object.email,
-         country:object.country,
-         phone:object.phone + "/" + object.phone1,
-         project:object.project,
-         isFacebook:object.isFacebook,
-         isWebsite:object.isWebSite,
-        employer: req.body.employer ,
-         dateUpdate:req.body.date,
+        // name:object.name,
+        //  email:object.email,
+        //  country:object.country,
+        //  phone:object.phone + "/" + object.phone1,
+        //  project:object.project,
+        //  isFacebook:object.isFacebook,
+        //  isWebsite:object.isWebSite,
+        // employer: req.body.employer ,
+        //  dateUpdate:req.body.date,
+
+         ...object,
          date:req.body.date,
          dateNumber:timeInMillis,
     };
