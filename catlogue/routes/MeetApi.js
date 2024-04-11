@@ -6,6 +6,30 @@ const lodash=require('lodash');
 const MeetSchema = require('../models/Meet')
 
 const userSchema = require('../models/userSchema')
+function convertDateToDDMMYY() {
+    var currentDate = new Date();
+    // Créer un objet Date à partir de la chaîne de date fournie
+    var day = currentDate.getUTCDate();
+    var month = currentDate.getUTCMonth() + 1; // Les mois commencent à 0, donc on ajoute 1
+    var year = currentDate.getUTCFullYear() ; // Obtenir les deux derniers chiffres de l'année
+
+    // Ajouter un zéro devant le jour et le mois si nécessaire
+    if (day < 10) {
+       var  d = '0' + day;
+    }
+    if (month < 10) {
+      var   m = '0' + month;
+    }
+if (day >= 10) {
+       var  d = '' + day;
+    }
+    if (month >= 10) {
+      var   m = '' + month;
+    }
+
+    // Retourner la date au format "dd-mm-yy"
+    return  d + '-' + m + '-' + year;
+}
    router.post('/add',  async (req, res) => {
      var currentDate = new Date();
 
@@ -47,6 +71,13 @@ if (day >= 10) {
 router.get('/all', async (req, res) => {
      
     var Meet = await MeetSchema.find().populate('lead');
+      const jsonArray = Meet.map(doc => doc.toJSON());
+     res.send(jsonArray.reverse());
+//aaaa
+ });
+router.get('/all/today', async (req, res) => {
+     
+    var Meet = await MeetSchema.find({date:convertDateToDDMMYY()}).populate('lead');
       const jsonArray = Meet.map(doc => doc.toJSON());
      res.send(jsonArray.reverse());
 //aaaa
