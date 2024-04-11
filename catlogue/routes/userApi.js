@@ -2,7 +2,30 @@
 const express = require('express')
 const router = express.Router();
 const lodash=require('lodash');
+  function convertDateToDDMMYY() {
+    var currentDate = new Date();
+    // Créer un objet Date à partir de la chaîne de date fournie
+    var day = currentDate.getUTCDate();
+    var month = currentDate.getUTCMonth() + 1; // Les mois commencent à 0, donc on ajoute 1
+    var year = currentDate.getUTCFullYear() ; // Obtenir les deux derniers chiffres de l'année
 
+    // Ajouter un zéro devant le jour et le mois si nécessaire
+    if (day < 10) {
+       var  d = '0' + day;
+    }
+    if (month < 10) {
+      var   m = '0' + month;
+    }
+if (day >= 10) {
+       var  d = '' + day;
+    }
+    if (month >= 10) {
+      var   m = '' + month;
+    }
+
+    // Retourner la date au format "dd-mm-yy"
+    return  d + '-' + m + '-' + year;
+}
       function processUser(user) {
     // Parcours de toutes les clés de l'objet
     for (var key in user) {
@@ -28,6 +51,22 @@ router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
+     res.send(jsonArray.reverse());
+//aaaa
+ });
+router.get('/all/today', async (req, res) => {
+     
+    var user = await userSchema.find({dateUpdate:convertDateToDDMMYY()}).populate('tableMeet');
+      const jsonArray = user.map(doc => doc.toJSON());
+      
+     res.send(jsonArray.reverse());
+//aaaa
+ });
+router.get('/all/redy', async (req, res) => {
+     
+    var user = await userSchema.find({color:"4"}).populate('tableMeet');
+      const jsonArray = user.map(doc => doc.toJSON());
+      
      res.send(jsonArray.reverse());
 //aaaa
  });
