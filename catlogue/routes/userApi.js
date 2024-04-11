@@ -57,16 +57,14 @@ var user=  await userSchema.findById(req.params.id).populate('tableMeet')
 let timeInMillis = date.getTime();
       let tableauAvecAttributAjouté = req.body.tabExel.map(object => {
     return {
-        // name:object.name,
-        //  email:object.email,
-        //  country:object.country,
-        //  phone:object.phone + "/" + object.phone1,
-        //  project:object.project,
-        //  isFacebook:object.isFacebook,
-        //  isWebsite:object.isWebSite,
-     
-
-         ...object,
+        name:object.name,
+         email:object.email,
+         country:object.country,
+         phone:object.phone,
+         project:object.project,
+         isFacebook:false,
+         isWebsite:false,
+         
             employer: req.body.employer ,
          dateUpdate:req.body.date,
          date:req.body.date,
