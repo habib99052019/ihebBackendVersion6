@@ -64,12 +64,13 @@ let timeInMillis = date.getTime();
         //  project:object.project,
         //  isFacebook:object.isFacebook,
         //  isWebsite:object.isWebSite,
-        // employer: req.body.employer ,
-        //  dateUpdate:req.body.date,
+     
 
          ...object,
+            employer: req.body.employer ,
+         dateUpdate:req.body.date,
          date:req.body.date,
-         dateNumber:timeInMillis,
+          dateNumber:timeInMillis,
     };
 });
   // console.log(tableauAvecAttributAjouté)
