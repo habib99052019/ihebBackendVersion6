@@ -7,7 +7,29 @@ const MeetSchema = require('../models/Meet')
 
 const userSchema = require('../models/userSchema')
    router.post('/add',  async (req, res) => {
-   
+     var currentDate = new Date();
+
+    // Extraire le jour, le mois et l'année de l'objet Date
+    var day = currentDate.getUTCDate();
+    var month = currentDate.getUTCMonth() + 1; // Les mois commencent à 0, donc on ajoute 1
+    var year = currentDate.getUTCFullYear() ; // Obtenir les deux derniers chiffres de l'année
+
+    // Ajouter un zéro devant le jour et le mois si nécessaire
+    if (day < 10) {
+       var  d = '0' + day;
+    }
+    if (month < 10) {
+      var   m = '0' + month;
+    }
+if (day >= 10) {
+       var  d = '' + day;
+    }
+    if (month >= 10) {
+      var   m = '' + month;
+    }
+
+    // Retourner la date au format "dd-mm-yy"
+    var dateUpdate= d + '-' + m + '-' + year;
              
 // console.log(req.body , typeOf(req.body))
     
@@ -16,6 +38,9 @@ const userSchema = require('../models/userSchema')
    
  
    await userSchema.findByIdAndUpdate({ _id:req.body.lead}, { $push: { tableMeet: meet._id } })
+       var user = await  userSchema.findById(req.body.lead )
+      user.dateUpdate=dateUpdate
+      await user.save()
    res.send(meet)
     
 });
