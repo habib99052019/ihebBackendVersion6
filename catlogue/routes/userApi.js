@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router();
 const lodash=require('lodash');
+const userSchema = require('../models/userSchema')
   function convertDateToDDMMYY() {
     var currentDate = new Date();
     // Créer un objet Date à partir de la chaîne de date fournie
@@ -39,14 +40,14 @@ if (day >= 10) {
 }
 
 ////
-const userSchema = require('../models/userSchema')
-async function  del(){
-     console.log("del1")
-     await userSchema.deleteMany()
-      console.log("del2")
-}
-// //
-del()
+
+// async function  del(){
+//      console.log("del1")
+//      await userSchema.deleteMany()
+//       console.log("del2")
+// }
+// // //
+// del()
 router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
@@ -60,6 +61,18 @@ router.get('/all/today', async (req, res) => {
       const jsonArray = user.map(doc => doc.toJSON());
       
      res.send(jsonArray.reverse());
+//aaaa
+ });
+router.get('/all/today/messages', async (req, res) => {
+     
+    var user = await userSchema.find({dateUpdate:convertDateToDDMMYY()}).populate('tableMeet');
+      const jsonArray = user.map(doc => doc.toJSON());
+  var NumberMessages=0
+  for (var i = 0; i <jsonArray.length ; i++) {
+  NumberMessages=NumberMessages + jsonArray[i].historique.length
+}
+      
+     res.send({message:NumberMessages});
 //aaaa
  });
 router.get('/all/redy', async (req, res) => {
