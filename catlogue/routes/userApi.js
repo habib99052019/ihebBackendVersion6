@@ -52,8 +52,9 @@ router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
-      // var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
-     res.send(jsonArray);
+     var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
+   console.log(arr[0],'sort')
+     res.send(arr);
 //aaaa
  });
 router.get('/all/today', async (req, res) => {
