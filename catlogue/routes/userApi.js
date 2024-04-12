@@ -59,8 +59,8 @@ router.get('/all/today', async (req, res) => {
      
     var user = await userSchema.find({dateUpdate:convertDateToDDMMYY()}).populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
-      
-     res.send(jsonArray.reverse());
+     jsonArray= jsonArray.sort((a, b) => a.dateUpdate - b.dateUpdate);
+     res.send(jsonArray);
 //aaaa
  });
 router.get('/all/today/messages', async (req, res) => {
