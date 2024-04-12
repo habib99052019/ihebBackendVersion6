@@ -68,6 +68,13 @@ router.get('/:id', async (req, res) => {
   
 
 })
+router.get('/:id', async (req, res) => {
+    console.log("habib")
+  var employer=  await employerSchema.findOne({login:req.params.id})
+   res.send(employer)
+  
+
+})
 router.get('/', async (req, res) => {
   console.log("habib")
 var employers=  await employerSchema.find()
