@@ -52,7 +52,7 @@ router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
-      jsonArray= jsonArray.sort((a, b) => a.dateNumber - b.dateNumber);
+      jsonArray= jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
      res.send(jsonArray.reverse());
 //aaaa
  });
