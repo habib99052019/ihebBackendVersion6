@@ -84,7 +84,7 @@ router.get('/all/today', async (req, res) => {
  });
 router.get('/all/today/valide', async (req, res) => {
      
-    var Meet = await MeetSchema.find({DateMeet:convertDateToDDMMYY()}).populate('lead');
+    var Meet = await MeetSchema.find({DateMeet:convertDateToDDMMYY(),status:"1"}).populate('lead');
       const jsonArray = Meet.map(doc => doc.toJSON());
      res.send(jsonArray.reverse());
 //aaaa
