@@ -125,7 +125,7 @@ let timeInMillis = date.getTime();
   user.date=convertDateToDDMMYY()
   user.DateN=date
   user.dateUpdate=convertDateToDDMMYY()
-  user.dateNumber=timeInMillis,
+  user.dateNumber=timeInMillis
     user.statut="new"
   user.color="3"
     await user.save()
