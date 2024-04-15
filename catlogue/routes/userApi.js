@@ -160,7 +160,7 @@ let timeInMillis = date.getTime();
          budjet:"",
         dateSale:"",
            color : "",
-          DateN=new Date(),
+          DateN:new Date(),
             employer: req.body.employer ,
          dateUpdate:req.body.date,
          date:req.body.date,
