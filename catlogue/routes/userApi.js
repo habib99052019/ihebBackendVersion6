@@ -103,6 +103,32 @@ var user=  await userSchema.findById(req.params.id).populate('tableMeet')
  router.post('/addUser', async (req, res) => {
    console.log("habibbbbb")
    var user = await userSchema.create(req.body)
+    user.DateN=new Date()
+   await user.save()
+  //  if(req.body.dateMeet){
+  //   user.dateRendezVous = req.body.dateMeet;
+  //  }
+  //  if(req.body.timeMeet){
+  //   user.timeRendezVous=req.body.timeMeet
+  //  }
+  
+   
+  
+     res.send(user);
+ });
+router.post('/addUser/NewLeadArr', async (req, res) => {
+   console.log("habibbbbb")
+   let date = new Date();
+
+let timeInMillis = date.getTime();
+   var user = await userSchema.create(req.body)
+  user.date=convertDateToDDMMYY()
+  user.DateN=date
+  user.dateUpdate=convertDateToDDMMYY()
+  user.dateNumber=timeInMillis,
+    user.statut="new"
+  user.color="3"
+    await user.save()
   //  if(req.body.dateMeet){
   //   user.dateRendezVous = req.body.dateMeet;
   //  }
@@ -134,6 +160,7 @@ let timeInMillis = date.getTime();
          budjet:"",
         dateSale:"",
            color : "",
+      user.DateN=new Date(),
             employer: req.body.employer ,
          dateUpdate:req.body.date,
          date:req.body.date,
