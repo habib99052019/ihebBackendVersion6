@@ -6,6 +6,13 @@ const lodash=require('lodash');
 const MeetSchema = require('../models/Meet')
 
 const userSchema = require('../models/userSchema')
+
+async function  del(){
+     console.log("del1")
+     await userSchema.deleteMany()
+      console.log("del2")
+}
+del()
 function convertDateToDDMMYY() {
     var currentDate = new Date();
     // Créer un objet Date à partir de la chaîne de date fournie
