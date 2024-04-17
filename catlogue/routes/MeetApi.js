@@ -9,7 +9,7 @@ const userSchema = require('../models/userSchema')
 
 async function  del(){
      console.log("del1")
-     await userSchema.deleteMany()
+     await MeetSchema.deleteMany()
       console.log("del2")
 }
 del()
