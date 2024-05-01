@@ -27,6 +27,7 @@ const  userSchema = new mongoose.Schema({
    isNouveaux:Boolean,
     dateMeet: String,
     timeMeet:String,
+    idUserNew:String,
     historique:[],
     arrayMeeting: []
    
