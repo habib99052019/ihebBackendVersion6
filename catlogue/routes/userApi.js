@@ -41,13 +41,13 @@ if (day >= 10) {
 
 ////
 
-async function  del(){
-     console.log("del1")
-     await userSchema.deleteMany()
-      console.log("del2")
-}
-// // //
-del()
+// async function  del(){
+//      console.log("del1")
+//      await userSchema.deleteMany()
+//       console.log("del2")
+// }
+// // // //
+// del()
 router.get('/all', async (req, res) => {
      
     var user = await userSchema.find().populate('tableMeet');
