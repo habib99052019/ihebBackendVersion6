@@ -29,6 +29,7 @@ const  userSchema = new mongoose.Schema({
     timeMeet:String,
     idUserNew:String,
     historique:[],
+    dateLeadNew:String,
     arrayMeeting: []
    
 

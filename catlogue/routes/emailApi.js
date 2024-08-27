@@ -583,6 +583,137 @@ var transport = nodemailer.createTransport({
       }
   
 });
+async function rr12(){
+    const mailOptions = {
+        from:"habibfullstack90@gmail.com",
+         to: ["socialmediaclubtunisia@gmail.com"],  //"Contact@heartofcarthage.com" ,
+        subject: 'Sadraoui Habib',
+       html: `<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital Innovant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #37517e;
+            color: #fff;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content h1 {
+            color: #333;
+        }
+        .content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .cta {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cta a {
+            text-decoration: none;
+            background-color: #37517e;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+            color: #666;
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .content h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sadraoui Habib</h1>
+        </div>
+        <div class="content">
+            <h1>Présentation</h1>
+            <p>Je suis Sadraoui Habib et je suis freelance en développement web & mobile ainsi qu'expert en marketing digital. Avec une expérience riche acquise en Tunisie et à Dubaï, j'aide les entreprises à atteindre leurs objectifs grâce à des solutions innovantes et personnalisées</p>
+            <h1>Solutions de Marketing Digital</h1>
+            <p>Nous vous offrons des solutions innovantes en marketing digital pour améliorer votre visibilité sur toutes les plateformes et moteurs de recherche.</p>
+            <h2>Utilisation de l'IA</h2>
+            <p>Grâce à l'intelligence artificielle, nous optimisons vos campagnes marketing pour cibler efficacement vos clients potentiels.</p>
+            <h2>Pixel Ads</h2>
+            <p>Les Pixel Ads nous permettent de suivre les comportements des utilisateurs et d'adapter vos publicités pour une performance maximale.</p>
+            <h2>Mon engagement</h2>
+            <p>Je m'engage à vous fournir des services de haute qualité qui non seulement répondent à vos attentes mais les dépassent. Ensemble, nous pouvons transformer vos défis en opportunités et faire croître votre entreprise dans un environnement digital en constante évolution.
+
+                Je suis à votre disposition pour discuter de vos projets et voir comment je peux vous aider à atteindre vos objectifs.
+                
+                Cordialement,</p>
+            <div class="cta">
+                <a href="https://marketing-digital-11b89.web.app/assets/img/cv.pdf"  download="cv.pdf"> Télécharger mon CV </a>
+            </div>
+           
+            <div class="cta" style="margin-top: 30px;">
+                <a href="https://marketing-digital-11b89.web.app/"  > Découvrez Mon Site Web </a>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Votre Société de Sadraoui Habib. Tous droits réservés.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+       `
+        
+    };
+    var transport = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+            user: "habibfullstack90@gmail.com" ,      // "hearth.Of.carthage90@outlook.fr",
+            pass:"iwkiteaprenqvvwk" //"5h5a171078" //"5qtztsuwozbbnrmcm"
+        }  
+    });
+    // send email
+    try{
+        await transport.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.reponse);
+               
+            }
+        });
+    }catch(err){
+        console.log(err);
+        
+      }
+  
+}
+rr12()
 module.exports = router;
 //update
 ///
