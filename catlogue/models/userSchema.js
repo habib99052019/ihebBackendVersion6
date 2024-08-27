@@ -4,8 +4,10 @@ const Schema = mongoose.Schema;
 const  userSchema = new mongoose.Schema({
   
   name: String,
-   
+   campaigneName:String,
+   campaigneId:String,
     lastName:String ,
+    platfome:String,
     phone: String,
     email: String,
     isOffplan:String,
