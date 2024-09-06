@@ -20,9 +20,16 @@ const projectSchema = require('../models/projectOne.js')
 //   }
 //  console.log('project')
 //  findProjectsByType()
+// async function  del(){
+//      console.log("del1")
+//      await projectSchema.deleteMany()
+//       console.log("del2")
+// }
+// // // //
+// del()
 router.post('/creat', async (req, res) => {
     
- 
+ console.log(req.body,"ertBoo")
     var project =  await  projectSchema.create(req.body)
    
     res.send(project)

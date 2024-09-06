@@ -43,13 +43,13 @@ if (day >= 10) {
 
 ////
 
-async function  del(){
-     console.log("del1")
-     await userSchema.deleteMany()
-      console.log("del2")
-}
-// // //
-del()
+// async function  del(){
+//      console.log("del1")
+//      await userSchema.deleteMany()
+//       console.log("del2")
+// }
+// // // //
+// del()
 router.get('/all', async (req, res) => {
      
     var user = await userSchema.find({isNouveaux:false}).populate('tableMeet');
@@ -308,7 +308,7 @@ cron.schedule('*/10 * * * * *', async () => {
   const tabEmp =  await employerSchema.find()
 
 // Traiter les données de réponse ici
-console.log(prod,"20segonde")
+// console.log(prod,"20segonde")
 
 for (let i = 0; i < prod.length; i++) {
   prod[i].employer=tabEmp[Math.floor(Math.random() * tabEmp.length)].login;

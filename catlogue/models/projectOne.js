@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const  projectOne= new mongoose.Schema({
+  
   title: String,
       sTitle:String,
       desc: String,
@@ -26,8 +27,11 @@ const  projectOne= new mongoose.Schema({
       lng:String,
       lat: String,
       imgs: [],
-      video: String
-
+      video: String,
+      sepcial:Boolean,
+      coeur:Number,
+      month:String,
+      locationMap:String
 
 
 
