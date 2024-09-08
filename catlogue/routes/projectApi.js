@@ -50,6 +50,30 @@ router.get('/', async (req, res) => {
    res.send(projects);
 //aaaa
 });
+router.get('/all/sepcial', async (req, res) => {
+     
+  var projects = await projectSchema.find({sepcial:true});
+   res.send(projects);
+//aaaa
+});
+router.get('/all/apar', async (req, res) => {
+     
+  var projects = await projectSchema.find({catigorie:"Apartement"});
+   res.send(projects);
+//aaaa
+});
+router.get('/all/vila', async (req, res) => {
+     
+  var projects = await projectSchema.find({catigorie:"Villa"});
+   res.send(projects);
+//aaaa
+});
+router.get('/all/office', async (req, res) => {
+     
+  var projects = await projectSchema.find({catigorie:"Office"});
+   res.send(projects);
+//aaaa
+});
 router.get('/all/redy', async (req, res) => {
  
      try {

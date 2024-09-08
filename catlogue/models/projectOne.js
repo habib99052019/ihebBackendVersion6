@@ -31,7 +31,11 @@ const  projectOne= new mongoose.Schema({
       sepcial:Boolean,
       coeur:Number,
       month:String,
-      locationMap:String
+      locationMap:String,
+      titleArab:String,
+      titleFrensh:String,
+      descArab:String,
+      descFrensh:String
 
 
 
