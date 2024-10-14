@@ -77,6 +77,15 @@ router.get('/all', async (req, res) => {
    res.send(arr);
 //aaaa
 });
+router.get('/all/pend', async (req, res) => {
+     
+  var user = await userSchema.find({isNouveaux:false, color:"3" })
+    const jsonArray = user.map(doc => doc.toJSON());
+   var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
+ console.log(arr[0],'sort')
+   res.send(arr);
+//aaaa
+});
  router.get('/all/web/new', async (req, res) => {
      
   var user = await userSchema.find({isNouveaux:true ,isWebSite:true })

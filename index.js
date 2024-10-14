@@ -37,6 +37,7 @@ const project=require('./catlogue/routes/lunding')
 const employer=require('./catlogue/routes/empoyer')
 const Meet = require('./catlogue/routes/MeetApi')
 const projectOne= require('./catlogue/routes/projectApi')
+const facture= require('./catlogue/routes/factureApi')
 //activer les api
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -61,6 +62,7 @@ app.use('/backend/one',project);
 app.use('/backend/employer',employer);
 app.use('/backend/meet',Meet);
 app.use('/backend/real',projectOne);
+app.use('/backend/facture',facture);
 //app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
 
 const uploadDirectory = path.join(__dirname, 'uploads');
