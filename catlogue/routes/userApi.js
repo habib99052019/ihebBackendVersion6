@@ -233,6 +233,7 @@ let timeInMillis = date.getTime();
             employer: req.body.employer ,
          dateUpdate:req.body.date,
          date:req.body.date,
+         dateLeadNew:new Date() ,
           dateNumber:timeInMillis,
     };
           return  processUser(user);
