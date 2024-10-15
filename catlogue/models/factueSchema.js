@@ -10,6 +10,7 @@ const  factureSchema= new mongoose.Schema({
   date:String,
   status:Number,
   link:String,
+  date:String
  
 
   });
