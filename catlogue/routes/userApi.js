@@ -43,13 +43,13 @@ if (day >= 10) {
 
 ////
 
-async function  del(){
-     console.log("del1")
-     await userSchema.deleteMany()
-      console.log("del2")
-}
-// // //
-del()
+// async function  del(){
+//      console.log("del1")
+//      await userSchema.deleteMany()
+//       console.log("del2")
+// }
+// // // //
+// del()
 router.get('/all', async (req, res) => {
      
     var user = await userSchema.find({isNouveaux:false}).populate('tableMeet');
@@ -289,7 +289,7 @@ router.delete('/:id', async (req, res) => {
 // }
 
 // })
-cron.schedule('*/15 * * * *', async () => {
+cron.schedule('*/20 * * * * *', async () => {
 
   var prod= await userSchema.find({isNouveaux:true})
   const tabEmp =  await employerSchema.find()
