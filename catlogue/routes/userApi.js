@@ -214,30 +214,7 @@ let timeInMillis = date.getTime();
 
 let timeInMillis = date.getTime();
 
-      let tableauAvecAttributAjouté = req.body.tabExel.map(object => {
-    var user = {
-        name:object.name,
-         email:object.email,
-         country:object.country,
-         phone:object.phone,
-         project:object.project,
-         isFacebook:false,
-         isWebsite:false,
-             isOffplan:"",
-          realEstateType:"",
-         budjet:"",
-        dateSale:"",
-           color : "3",
-          statut:"new",
-          DateN:new Date(),
-            employer: req.body.employer ,
-         dateUpdate:req.body.date,
-         date:req.body.date,
-         dateLeadNew:new Date() ,
-          dateNumber:timeInMillis,
-    };
-          return  processUser(user);
-});
+      let tableauAvecAttributAjouté = req.body.tabExel
   // console.log(tableauAvecAttributAjouté)
   await userSchema.insertMany(tableauAvecAttributAjouté)
     res.send({message:true});
