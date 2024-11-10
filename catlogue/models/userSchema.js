@@ -32,6 +32,8 @@ const  userSchema = new mongoose.Schema({
     idUserNew:String,
     historique:[],
     dateLeadNew:String,
+    bathrooms:String,
+   bedrooms:String,
     arrayMeeting: []
    
 
