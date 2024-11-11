@@ -10,11 +10,13 @@ const path = require('path');
 var multer = require('multer');
 console.log('produit')
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
-app.use(express.json({ extended: false, limit: '50mb' }))
-app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }))
+app.use(bodyParser.json({ limit: '20mb' })); // Par exemple, 20 Mo pour JSON
+app.use(bodyParser.urlencoded({ limit: '20mb', extended: true })); // 20 Mo pour les données URL-encoded
+
+// Ou utilisez directement express.json() si vous n'utilisez pas body-parser explicitement
+app.use(express.json({ limit: '20mb' }));
+app.use(express.urlencoded({ limit: '20mb', extended: true }));
+
 
 app.get('/backend', (req, res) => {
     res.send('Hello Backend!');
