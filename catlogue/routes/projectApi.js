@@ -50,6 +50,12 @@ router.get('/', async (req, res) => {
    res.send(projects);
 //aaaa
 });
+router.get('/all/leng', async (req, res) => {
+     
+  var projects = await projectSchema.find();
+   res.send({len:projects.length} );
+//aaaa
+});
 router.get('/all/sepcial', async (req, res) => {
      
   var projects = await projectSchema.find({sepcial:true});
