@@ -44,9 +44,9 @@ if (day >= 10) {
 ////
 
 // async function  del(){
-//      console.log("del1")
+//      //console.log("del1")
 //      await userSchema.deleteMany()
-//       console.log("del2")
+//       //console.log("del2")
 // }
 // // // //
 // del()
@@ -55,7 +55,7 @@ router.get('/all', async (req, res) => {
     var user = await userSchema.find({isNouveaux:false}).populate('tableMeet');
       const jsonArray = user.map(doc => doc.toJSON());
      var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
-   console.log(arr[0],'sort')
+   //console.log(arr[0],'sort')
      res.send(arr);
 //aaaa
  });
@@ -64,7 +64,7 @@ router.get('/all', async (req, res) => {
   var user = await userSchema.find().populate('tableMeet');
     const jsonArray = user.map(doc => doc.toJSON());
    var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
- console.log(arr[0],'sort')
+ //console.log(arr[0],'sort')
    res.send(arr);
 //aaaa
 });
@@ -73,7 +73,7 @@ router.get('/all', async (req, res) => {
   var user = await userSchema.find({isNouveaux:true})
     const jsonArray = user.map(doc => doc.toJSON());
    var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
- console.log(arr[0],'sort')
+ //console.log(arr[0],'sort')
    res.send(arr);
 //aaaa
 });
@@ -82,7 +82,7 @@ router.get('/all/pend', async (req, res) => {
   var user = await userSchema.find({isNouveaux:false, color:"3" })
     const jsonArray = user.map(doc => doc.toJSON());
    var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
- console.log(arr[0],'sort')
+ //console.log(arr[0],'sort')
    res.send(arr);
 //aaaa
 });
@@ -91,12 +91,12 @@ router.get('/all/pend', async (req, res) => {
   var user = await userSchema.find({isNouveaux:true ,isWebSite:true })
     const jsonArray = user.map(doc => doc.toJSON());
    var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
- console.log(arr[0],'sort')
+ //console.log(arr[0],'sort')
    res.send(arr);
 //aaaa
 });
 router.post('/new/salesNew', async (req, res) => {
-  console.log("nnew")
+  //console.log("nnew")
   var users= await userSchema.find({isNouveaux:true ,employer:req.body.employer})
   res.send(users)
    
@@ -106,7 +106,7 @@ router.get('/all/facebook/new', async (req, res) => {
   var user = await userSchema.find({isNouveaux:true ,isFacebook:true })
     const jsonArray = user.map(doc => doc.toJSON());
    var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
- console.log(arr[0],'ddd')
+ //console.log(arr[0],'ddd')
    res.send(arr);
 //aaaa
 });
@@ -146,7 +146,7 @@ router.get('/ledsEmployer/:id', async (req, res) => {
 //aaaa
  });
  router.get('/:id', async (req, res) => {
-  console.log("habib")
+  //console.log("habib")
 var user=  await userSchema.findById(req.params.id).populate('tableMeet')
       
  res.send(user)
@@ -154,7 +154,7 @@ var user=  await userSchema.findById(req.params.id).populate('tableMeet')
 
 })
 router.post('/addUser/new', async (req, res) => {
-  console.log("habibbbbb")
+  //console.log("habibbbbb")
   let date = new Date();
   let d=Date().slice(0,21)
   let timeInMillis = date.getTime();
@@ -168,7 +168,7 @@ router.post('/addUser/new', async (req, res) => {
     res.send(user);
 });
  router.post('/addUser', async (req, res) => {
-   console.log("habibbbbb")
+   //console.log("habibbbbb")
    var user = await userSchema.create(req.body)
     user.DateN=new Date()
    await user.save()
@@ -184,7 +184,7 @@ router.post('/addUser/new', async (req, res) => {
      res.send(user);
  });
 router.put('/addUser/NewLeadArr', async (req, res) => {
-   console.log("habibbbbb")
+   //console.log("habibbbbb")
    let date = new Date();
 
 let timeInMillis = date.getTime();
@@ -209,13 +209,13 @@ let timeInMillis = date.getTime();
      res.send(user);
  });
  router.post('/addXl', async (req, res) => {
-      // console.log(req.body.tabExel)
+      // //console.log(req.body.tabExel)
       let date = new Date();
 
 let timeInMillis = date.getTime();
 
       let tableauAvecAttributAjouté = req.body.tabExel
-  // console.log(tableauAvecAttributAjouté)
+  // //console.log(tableauAvecAttributAjouté)
   await userSchema.insertMany(tableauAvecAttributAjouté)
     res.send({message:true});
 });
@@ -261,7 +261,7 @@ router.delete('/:id', async (req, res) => {
 });
   router.get('/del', async (req, res) => {
     try{
-         console.log("are")
+         //console.log("are")
         await userSchema.deleteMany()
           
             res.send({message:true})
@@ -276,7 +276,7 @@ router.delete('/:id', async (req, res) => {
     
 });
 // cron.schedule('*/1 * * * *', async () => {
-//   console.log(55)
+//   //console.log(55)
 //   var prod= await userSchema.find({isNouveaux:true})
 //   const tabEmp =  await employerSchema.find()
 
@@ -284,7 +284,7 @@ router.delete('/:id', async (req, res) => {
 
 // for (let i = 0; i < prod.length; i++) {
 //   prod[i].employer=tabEmp[Math.floor(Math.random() * tabEmp.length)].login;
-//   console.log(prod[i] , "userEmployer")
+//   //console.log(prod[i] , "userEmployer")
 //   await prod[i].save()
 // }
 
@@ -295,13 +295,13 @@ cron.schedule('*/20 * * * * *', async () => {
   const tabEmp =  await employerSchema.find()
 
 // Traiter les données de réponse ici
-// console.log(prod,"20segonde")
+// //console.log(prod,"20segonde")
 
 for (let i = 0; i < prod.length; i++) {
   prod[i].employer=tabEmp[Math.floor(Math.random() * tabEmp.length)].login;
  
   await prod[i].save()
-  console.log(prod[i].employer)
+  //console.log(prod[i].employer)
 }
 });
  module.exports = router;

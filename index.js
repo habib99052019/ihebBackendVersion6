@@ -66,7 +66,7 @@ app.use('/backend/meet',Meet);
 app.use('/backend/real',projectOne);
 app.use('/backend/facture',facture);
 //app.use('/backend/uploads/', express.static(path.join(__dirname, '/uploads')));
-
+app.use('/backend/uploads', express.static('uploads'));
 const uploadDirectory = path.join(__dirname, 'uploads');
 let img;
 // Configurer Multer pour gérer les téléchargements
