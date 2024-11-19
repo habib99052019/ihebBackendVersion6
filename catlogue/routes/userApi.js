@@ -215,6 +215,21 @@ let timeInMillis = date.getTime();
 let timeInMillis = date.getTime();
 
       let tableauAvecAttributAjouté = req.body.tabExel
+     let tabEmp = await  employerSchema.find()
+     tabEmp=tabEmp.filter(ele=>ele.login != "admin" )
+     let pointZero=0
+   if(tableauAvecAttributAjouté.length >= tabEmp.length ) {
+    let devision =   tableauAvecAttributAjouté.length % tabEmp.length 
+    console.log(devision ,"dev")
+    for (let i = 0; i <tabEmp.length ; i++) {
+      tableauAvecAttributAjouté.slice(pointZero, (i+2)*devision).map(ele=> ele.employer=tabEmp[i].login) ;
+
+      pointZero=devision*(i+1)
+
+
+    }
+    
+   }
   // //console.log(tableauAvecAttributAjouté)
   await userSchema.insertMany(tableauAvecAttributAjouté)
     res.send({message:true});

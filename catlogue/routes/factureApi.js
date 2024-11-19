@@ -97,6 +97,45 @@ cron.schedule('0 0 * * *', async () => {
    if(compar < oneWeekInMillis){
     tabfac[i].status=1
     await tabfac[i].save()
+    var   text= "facture pyer"
+    console.log(text)
+  
+      const mailOptions = {
+          from:"habibfullstack90@gmail.com",
+           to: ["heartofcarthagedubai@gmail.com","ha9.0bib90@gmail.com"],  //"Contact@heartofcarthage.com" ,
+          subject: 'New customer',
+         html: `<div><h2>Information to customer</h2></div>
+         <pre>Title: ${tabfac[i].title}</pre>
+         <pre>Dead line :  ${tabfac[i].deadLine}</pre>
+         
+         `
+          
+      };
+  
+
+  var transport = nodemailer.createTransport({
+          service: "Gmail",
+          auth: {
+              user: "habibfullstack90@gmail.com" ,      // "hearth.Of.carthage90@outlook.fr",
+              pass:"iwkiteaprenqvvwk" //"5h5a171078" //"5qtztsuwozbbnrmcm"
+          }  
+      });
+      // send email
+      try{
+          await transport.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                  console.log(error);
+              } else {
+                  console.log('Email sent: ' + info.reponse);
+                  res.json({message: "email send sucessfully"});
+              }
+          });
+      }catch(err){
+          console.log(err);
+          
+        }
+    
+    
    }
   }
   });
@@ -105,3 +144,8 @@ cron.schedule('0 0 * * *', async () => {
 
 
 
+   
+     
+    
+  
+   
