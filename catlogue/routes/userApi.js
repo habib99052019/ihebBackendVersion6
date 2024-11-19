@@ -225,7 +225,7 @@ let timeInMillis = date.getTime();
 
       let tableauAvecAttributAjouté = req.body.tabExel
      let tabEmp = await  employerSchema.find({ login: { $ne: "admin" } })
-     tabEmm==tabEmp
+     tabEmm=tabEmp
     console.log( tabEmp ,"emps")
      let pointZero=0
    if(tableauAvecAttributAjouté.length >= tabEmp.length ) {
