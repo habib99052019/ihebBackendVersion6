@@ -223,7 +223,8 @@ let timeInMillis = date.getTime();
 
       let tableauAvecAttributAjouté = req.body.tabExel
      let tabEmp1 = await  employerSchema.find()
-     tabEmp=tabEmp1.filter(ele=>ele.login !=  "admin" )
+    var  tabEmp=tabEmp1.filter(ele=>ele.login !=  "admin" )
+    console.log( tabEmp ,"emps")
      let pointZero=0
    if(tableauAvecAttributAjouté.length >= tabEmp.length ) {
     let devision =   tableauAvecAttributAjouté.length % tabEmp.length 
