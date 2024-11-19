@@ -229,7 +229,8 @@ let timeInMillis = date.getTime();
     console.log( tabEmp ,"emps")
      let pointZero=0
    if(tableauAvecAttributAjouté.length >= tabEmp.length ) {
-    let devision =   tableauAvecAttributAjouté.length % tabEmp.length 
+    let devision =    Math.floor(tableauAvecAttributAjouté.length / tabEmp.length )
+   
     console.log(devision ,tableauAvecAttributAjouté.length,tabEmp.length ,"dev")
     for (let i = 0; i <tabEmp.length ; i++) {
       tableauAvecAttributAjouté.slice(pointZero, (i+2)*devision).map(ele=> ele.employer=tabEmp[i].login) ;
