@@ -5,6 +5,7 @@ const lodash=require('lodash');
 const userSchema = require('../models/userSchema')
 const employerSchema=require('../models/employerSchema')
 var cron = require('node-cron');
+var tabji=[]
   function convertDateToDDMMYY() {
     var currentDate = new Date();
     // Créer un objet Date à partir de la chaîne de date fournie
@@ -66,6 +67,12 @@ router.get('/all', async (req, res) => {
    var arr = jsonArray.sort((a, b) => b.dateNumber - a.dateNumber);
  //console.log(arr[0],'sort')
    res.send(arr);
+//aaaa
+});
+router.get('/xxl/xl', async (req, res) => {
+     
+
+   res.send(tabji);
 //aaaa
 });
  router.get('/all/new', async (req, res) => {
@@ -215,8 +222,8 @@ let timeInMillis = date.getTime();
 let timeInMillis = date.getTime();
 
       let tableauAvecAttributAjouté = req.body.tabExel
-     let tabEmp = await  employerSchema.find()
-     tabEmp=tabEmp.filter(ele=>ele.login != "admin" )
+     let tabEmp1 = await  employerSchema.find()
+     tabEmp=tabEmp1.filter(ele=>ele.login !=  "admin" )
      let pointZero=0
    if(tableauAvecAttributAjouté.length >= tabEmp.length ) {
     let devision =   tableauAvecAttributAjouté.length % tabEmp.length 
@@ -230,6 +237,7 @@ let timeInMillis = date.getTime();
     }
     
    }
+   tabji=tableauAvecAttributAjouté
   // //console.log(tableauAvecAttributAjouté)
   await userSchema.insertMany(tableauAvecAttributAjouté)
     res.send({message:true});
