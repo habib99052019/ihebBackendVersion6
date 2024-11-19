@@ -227,6 +227,7 @@ let timeInMillis = date.getTime();
      let tabEmp = await  employerSchema.find({ login: { $ne: "admin" } })
      tabEmm=tabEmp
     console.log( tabEmp ,"emps")
+    //
      let pointZero=0
    if(tableauAvecAttributAjouté.length >= tabEmp.length ) {
     let devision =    Math.floor(tableauAvecAttributAjouté.length / tabEmp.length )
